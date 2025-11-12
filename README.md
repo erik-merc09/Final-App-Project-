@@ -1,22 +1,113 @@
-# cs3-final-app-project
+# Habit Tracker - 4-Week Build Plan
 
-# Getting started
+A lightweight daily habit tracker that helps you build streaks, stay accountable, and visualize progress. Works offline as a PWA.
 
-Ask the assistant to help you come up with a simple app idea, or tell it your idea and ask for step‑by‑step help to get started.
-- Try: 'Give me 3 simple app ideas I can finish in 4 weeks' *or* 'I want to build [APP IDEA]. Help me get started step-by-step'
+## What's included (Week 1)
 
-# How to work with the helper (Copilot / assistant)
+✅ **Add & manage habits** (name, daily/weekly cadence)  
+✅ **Daily check-ins** with toggle for today  
+✅ **Streak counter** (consecutive days)  
+✅ **Weekly summary grid** showing 7-day check-in history  
+✅ **Local persistence** (localStorage - works offline)  
+✅ **Export/Import** data as JSON  
+✅ **Mobile responsive** UI  
 
-- Turn off Copilot: Next Edit Suggestions
-- Ask short, clear questions. Examples that work well:
-  - "Give me 3 simple app ideas I can finish in 4 weeks."
-  - "Show an HTML form and a short script that saves a note and shows it on the page." 
-  - "This piece of code doesn't work: [paste your snippet]. Tell me the likely problem and how to fix it."
-  - "Explain [something you don't understand]"
-  - "How should I structure the data for [my app]?"
-- The assistant will NOT give you a full finished project to submit. It will help with tiny, teachable steps and short examples so you learn.
+## Quick Start
 
-# Grading Criteria
+1. **Open in browser** — Open `index.html` in any modern browser (no server needed)
+2. **Add a habit** — Type a name, select cadence, click "Add Habit"
+3. **Check in** — Click "Check in for today" button
+4. **View progress** — See streaks and weekly grid
+5. **Export data** — Click "Export Data" to save JSON file
+
+## 4-Week Development Plan
+
+### Week 1 ✅ (Current)
+- ✅ Scaffold HTML/CSS/JS project
+- ✅ Add habit form and CRUD
+- ✅ Check-in toggle & streak calculation
+- ✅ Weekly summary view
+- ✅ localStorage persistence
+
+### Week 2 (Next)
+- [ ] Edit habit details (name, notes)
+- [ ] Filter habits (active/archived)
+- [ ] Simple analytics (best streak, total check-ins)
+- [ ] Improve error handling & validation
+- [ ] Add keyboard shortcuts
+
+### Week 3 (Polish & Features)
+- [ ] Delete confirmation dialog
+- [ ] Dark mode toggle
+- [ ] Habit icons/colors
+- [ ] Notes/journal on each check-in
+- [ ] Bulk import sample data
+
+### Week 4 (PWA & Deploy)
+- [ ] Add manifest.json for installability
+- [ ] Add service worker for offline support
+- [ ] Deploy to Netlify or GitHub Pages
+- [ ] Final UX polish & accessibility fixes
+- [ ] Write user documentation
+
+## Data Model
+
+```json
+{
+  "habits": [
+    {
+      "id": "unique-id",
+      "name": "Drink water",
+      "cadence": "daily",
+      "createdAt": "2025-11-12T10:30:00Z",
+      "startDate": "2025-11-12"
+    }
+  ],
+  "checkins": [
+    {
+      "id": "unique-id",
+      "habitId": "habit-id",
+      "date": "2025-11-12",
+      "createdAt": "2025-11-12T14:00:00Z"
+    }
+  ]
+}
+```
+
+## Acceptance Tests (Week 1)
+
+1. ✅ Add habit → persists after page reload
+2. ✅ Check-in for today → toggle shows active state, streak increases
+3. ✅ Uncheck → streak recalculated correctly
+4. ✅ Weekly summary → shows correct checks for test data
+5. ✅ Export data → JSON file downloads correctly
+6. ✅ Import data → loads habits and check-ins from file
+
+## Tech Stack
+
+- **Frontend:** Vanilla HTML/CSS/JavaScript (no frameworks)
+- **Storage:** localStorage
+- **Deploy:** Static hosting (Netlify, Vercel, GitHub Pages)
+
+## File Structure
+
+```
+/workspaces/Final-App-Project-/
+├── index.html       (HTML structure)
+├── script.js        (Business logic + UI controller)
+├── style.css        (Mobile-responsive styling)
+└── README.md        (This file)
+```
+
+## Notes
+
+- **Timezone handling:** Dates stored in `YYYY-MM-DD` format (local timezone)
+- **Data privacy:** All data stored locally in browser (no server)
+- **Browser support:** Chrome, Firefox, Safari, Edge (all modern versions)
+
+---
+
+**Next:** Implement Week 2 features (edit, filter, analytics) once you're happy with Week 1!# Grading Criteria
 
 ## Design and Layout
 - [ ] Pages organized into components e.g. header, nav, main, etc.
