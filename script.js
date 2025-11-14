@@ -1,63 +1,39 @@
 // Quiz data
 let questions = [
-    { question: "What is 2 + 2?", options: ["3", "4", "5"], correct: 1 },
-    { question: "What is the capital of France?", options: ["London", "Paris", "Berlin"], correct: 1 },
-    { question: "What color is the sky?", options: ["Green", "Blue", "Red"], correct: 1 },
-    { question: "How many days in a week?", options: ["5", "6", "7"], correct: 2 },
-    { question: "What is 10 - 3?", options: ["5", "7", "9"], correct: 1 },
-    { question: "Which planet is closest to the sun?", options: ["Venus", "Mercury", "Mars"], correct: 1 },
-    { question: "How many sides does a triangle have?", options: ["2", "3", "4"], correct: 1 },
-    { question: "What is the largest ocean?", options: ["Atlantic", "Pacific", "Indian"], correct: 1 },
-    { question: "How many vowels are in the alphabet?", options: ["3", "5", "7"], correct: 1 },
+    { question: "Why was 6 afaid of 7?", options: ["Pineapple", "7, 8, 9", "He has a gun"], correct: 1 },
+    { question: "What is the capital of Fortnite?", options: ["Loot Lake", "Tilted Towers", "Moisty mire"], correct: 1 },
+    { question: "What color is the sky in a blood moon?", options: ["Black", "Brown", "Red"], correct: 0 },
+    { question: "How many weeks in a day?", options: ["Kratos", "R-301", "1/7"], correct: 2 },
+    { question: "What is 70 - 3?", options: ["69", "67", "41"], correct: 1 },
+    { question: "Deal or no deal?", options: ["No deal!", "Seal!", "Deal!", "No seal!"], correct: 1 },
+    { question: "How do you kill a werewolf?", options: ["Shoe Polish", "Black Pudding ", "Gravy Granules", "Cillit Bang"], correct: 0 },
+    { question: "What flavor is cardboard", options: ["Honey", "Pork Scratchings", "Egg Mayonaise", "Talc"], correct: 2 },
+    { question: "Whatdo you call a wingless fly?", options: ["A Flap", "A plum", "A Walk", "Jason"], correct: 2 },
     { question: "What is 5 × 4?", options: ["15", "20", "25"], correct: 1 }
 ];
 
-// Quiz state
-let currentQuestion = 0;
-let score = 0;
+// Quiz start
+score = 0;
+currentQuestion = 0;
 
-// Display current question and options
+// Display  question  
 function showQuestion() {
     let q = questions[currentQuestion];
-    document.getElementById("questionText").innerText = q.question;
     
-    let optionsDiv = document.getElementById("optionsContainer");
-    optionsDiv.innerHTML = "";
-    
-    q.options.forEach((option, index) => {
-        let button = document.createElement("button");
-        button.innerText = option;
-        button.onclick = () => checkAnswer(index);
-        optionsDiv.appendChild(button);
-    });
 }
 
-// Check if answer is correct
-function checkAnswer(selected) {
-    if (selected === questions[currentQuestion].correct) {
-        score++;
-    }
-    nextQuestion();
+// Check if answer is right
+function checkAnswer() {
+    
 }
 
-// Move to next question or show score
+// Go to next question
 function nextQuestion() {
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
-        showQuestion();
-    } else {
-        showScore();
-    }
+
 }
 
-// Display final score
+// SHow score
 function showScore() {
-    document.getElementById("questionText").innerText = "Quiz Complete!";
-    document.getElementById("optionsContainer").innerHTML = "";
-    document.getElementById("scoreDisplay").innerText = "Your Score: " + score + " / " + questions.length;
+    
 }
-
-// Start quiz
-showQuestion();
-
 

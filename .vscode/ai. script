@@ -1,0 +1,63 @@
+// Quiz data
+let questions = [
+    { question: "Why was 6 afaid of 7?", options: ["Pineapple", "7, 8, 9", "He has a gun"], correct: 1 },
+    { question: "What is the capital of Fortnite?", options: ["Loot Lake", "Tilted Towers", "Moisty mire"], correct: 1 },
+    { question: "What color is the sky in a blood moon?", options: ["Black", "Brown", "Red"], correct: 0 },
+    { question: "How many weeks in a day?", options: ["Kratos", "R-301", "1/7"], correct: 2 },
+    { question: "What is 70 - 3?", options: ["69", "67", "41"], correct: 1 },
+    { question: "Deal or no deal?", options: ["No deal!", "Seal!", "Deal!", "No seal!"], correct: 1 },
+    { question: "How do you kill a werewolf?", options: ["Shoe Polish", "Black Pudding ", "Gravy Granules", "Cillit Bang"], correct: 0 },
+    { question: "What flavor is cardboard", options: ["Honey", "Pork Scratchings", "Egg Mayonaise", "Talc"], correct: 2 },
+    { question: "Whatdo you call a wingless fly?", options: ["A Flap", "A plum", "A Walk", "Jason"], correct: 2 },
+    { question: "What is 5 × 4?", options: ["15", "20", "25"], correct: 1 }
+];
+
+// Quiz state
+let currentQuestion = 0;
+let score = 0;
+
+// Display current question and options
+function showQuestion() {
+    let q = questions[currentQuestion];
+    document.getElementById("questionText").innerText = q.question;
+    
+    let optionsDiv = document.getElementById("optionsContainer");
+    optionsDiv.innerHTML = "";
+    
+    q.options.forEach((option, index) => {
+        let button = document.createElement("button");
+        button.innerText = option;
+        button.onclick = () => checkAnswer(index);
+        optionsDiv.appendChild(button);
+    });
+}
+
+// Check if answer is correct
+function checkAnswer(selected) {
+    let correct = questions[currentQuestion].correct;
+    let feedback = (selected === correct) ? "Correct!" : "Wrong! The answer is: " + questions[currentQuestion].options[correct];
+    document.getElementById("scoreDisplay").innerText = feedback;
+    setTimeout(nextQuestion, 2000); // Wait 2 seconds before next question
+}
+
+// Move to next question or show score
+function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+
+// Display final score
+function showScore() {
+    document.getElementById("questionText").innerText = "Quiz Complete!";
+    document.getElementById("optionsContainer").innerHTML = "";
+    document.getElementById("scoreDisplay").innerText = "Your Score: " + score + " / " + questions.length;
+}
+
+// Start quiz
+showQuestion();
+
+
