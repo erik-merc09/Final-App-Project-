@@ -1,4 +1,4 @@
-// Quiz data
+
 let questions = [
     { question: "Why was 6 afaid of 7?", options: ["Pineapple", "7, 8, 9", "He has a gun"], correct: 1 },
     { question: "What is the capital of Fortnite?", options: ["Loot Lake", "Tilted Towers", "Moisty mire"], correct: 1 },
@@ -13,27 +13,49 @@ let questions = [
 ];
 
 // Quiz start
-score = 0;
-currentQuestion = 0;
+let currentQuestion = 0;
+let score = 0;
 
-// Display  question  
+// show questuion
 function showQuestion() {
     let q = questions[currentQuestion];
+    document.getElementById("questionText").innerText = q.question;
     
+    let optionsDiv = document.getElementById("optionsContainer");
+    optionsDiv.innerHTML = "";
+    
+    q.options.forEach((option, index) => {
+        let button = document.createElement("button");
+        button.innerText = option;
+        button.onclick = () => checkAnswer(index);
+        optionsDiv.appendChild(button);
+    });
 }
 
-// Check if answer is right
-function checkAnswer() {
-    
+// Check if correct
+function checkAnswer(selected) {
+    let correct = questions[currentQuestion].correct;
+    let feedback = (selected === correct) ? "Correct!" : "Wrong! The answer is: " + questions[currentQuestion].options[correct];
+    document.getElementById("scoreDisplay").innerText = feedback;
+    setTimeout(nextQuestion, 2000); // Wait 2 seconds before next question
 }
 
-// Go to next question
+// Move to next question
 function nextQuestion() {
-
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
 }
 
-// SHow score
+// Show score
 function showScore() {
-    
+    document.getElementById("questionText").innerText = "Quiz Done!";
+    document.getElementById("optionsContainer").innerHTML = "";
+    document.getElementById("scoreDisplay").innerText = "Your Score: " + score + " / " + questions.length;
 }
 
+// Start quiz
+showQuestion();
