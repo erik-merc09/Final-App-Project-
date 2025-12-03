@@ -1,15 +1,15 @@
 
 let questions = [
-    { question: "Why was 6 afaid of 7?", options: ["Pineapple", "7, 8, 9", "He has a gun"], correct: 1 },
-    { question: "What is the capital of Fortnite?", options: ["Loot Lake", "Tilted Towers", "Moisty mire"], correct: 1 },
+    { question: "What is 10 - 3?", options: ["28", "7", "75"], correct: 1 },
+    { question: "What is the capital the U.S?", options: ["England", "Washington D.C.", "Toronto"], correct: 1 },
     { question: "What color is the sky in a blood moon?", options: ["Black", "Brown", "Red"], correct: 0 },
-    { question: "How many weeks in a day?", options: ["Kratos", "R-301", "1/7"], correct: 2 },
-    { question: "What is 70 - 3?", options: ["69", "67", "41"], correct: 1 },
-    { question: "Deal or no deal?", options: ["No deal!", "Seal!", "Deal!", "No seal!"], correct: 1 },
-    { question: "How do you kill a werewolf?", options: ["Shoe Polish", "Black Pudding ", "Gravy Granules", "Cillit Bang"], correct: 0 },
-    { question: "What flavor is cardboard", options: ["Honey", "Pork Scratchings", "Egg Mayonaise", "Talc"], correct: 2 },
-    { question: "Whatdo you call a wingless fly?", options: ["A Flap", "A plum", "A Walk", "Jason"], correct: 2 },
-    { question: "What is 5 × 4?", options: ["15", "20", "25"], correct: 1 }
+    { question: "How many weeks are in a day?", options: ["7", "5", "1/7"], correct: 2 },
+    { question: "What is 70 + 3?", options: ["140", "73", "41"], correct: 1 },
+    { question: "What is the largets country in the world by land area?", options: ["U.S.A", "Russia", "Mexico", "India"], correct: 1 },
+    { question: "What is the oiffical name of Big Ben?", options: [" The Elizabeth Tower", " The Eiffel Tower ", "Burj Khalifa", " Willis Tower"], correct: 0 },
+    { question: "Which planet is known as the red planet?", options: ["Super Earth", "Neptune", "Mars", "Pluto"], correct: 2 },
+    { question: "What was the name of the Ancient Egyptian Sun God?", options: ["Khonsu", "Cleopatra", "Anubis", "Ra"], correct: 3 },
+    { question: "What is 5 x 7 x 3 x 4 x 5 x 1 x 7 x 8 x 0?", options: ["456,067", "0", "752,097,502,367", "117,600"], correct: 1 }
 ];
 
 // Quiz start
@@ -35,9 +35,12 @@ function showQuestion() {
 // Check if correct
 function checkAnswer(selected) {
     let correct = questions[currentQuestion].correct;
-    let feedback = (selected === correct) ? "Correct!" : "Wrong! The answer is: " + questions[currentQuestion].options[correct];
+    let feedback = (selected == correct) ? "Correct!" : "Wrong! The answer is: " + questions[currentQuestion].options[correct];
     document.getElementById("scoreDisplay").innerText = feedback;
-    setTimeout(nextQuestion, 2000); // Wait 2 seconds before next question
+    setTimeout(nextQuestion, 1000); // Wait 2 seconds before next question
+    if (selected == correct) {
+        score++;
+    }
 }
 
 // Move to next question
