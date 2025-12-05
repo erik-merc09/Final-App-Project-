@@ -23,7 +23,7 @@ function showQuestion() {
     
     let optionsDiv = document.getElementById("optionsContainer");
     optionsDiv.innerHTML = "";
-    
+    // AI assisted with this line of code
     q.options.forEach((option, index) => {
         let button = document.createElement("button");
         button.innerText = option;
@@ -51,6 +51,7 @@ function nextQuestion() {
     } else {
         showScore();
     }
+
 }
 
 // Show score
