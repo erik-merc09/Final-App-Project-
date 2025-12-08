@@ -37,10 +37,12 @@ function checkAnswer(selected) {
     let correct = questions[currentQuestion].correct;
     let feedback = (selected == correct) ? "Correct!" : "Wrong! The answer is: " + questions[currentQuestion].options[correct];
     document.getElementById("scoreDisplay").innerText = feedback;
-    setTimeout(nextQuestion, 1000); // Wait 2 seconds before next question
+    setTimeout(nextQuestion, 0); // Wait 1 seconds before next question
     if (selected == correct) {
         score++;
     }
+    element.remove(feedback)
+
 }
 
 // Move to next question
