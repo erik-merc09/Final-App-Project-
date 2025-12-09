@@ -1,11 +1,11 @@
 
 let questions = [
-    { question: "What is 10 - 3?", options: ["28", "7", "75"], correct: 1 },
-    { question: "What is the capital the U.S?", options: ["England", "Washington D.C.", "Toronto"], correct: 1 },
-    { question: "What color is the sky in a blood moon?", options: ["Black", "Brown", "Red"], correct: 0 },
-    { question: "How many weeks are in a day?", options: ["7", "5", "1/7"], correct: 2 },
-    { question: "What is 70 + 3?", options: ["140", "73", "41"], correct: 1 },
-    { question: "What is the largets country in the world by land area?", options: ["U.S.A", "Russia", "Mexico", "India"], correct: 1 },
+    { question: "How many faces does a Dodecahedron have?", options: ["11", "10", "12", "13"], correct: 2 },
+    { question: "What is the capital the U.S?", options: ["England", "Washington D.C.", "Toronto", "Alaska"], correct: 1 },
+    { question: "What color is the sky in a blood moon?", options: ["Black", "Brown", "Red", "White"], correct: 0 },
+    { question: "How many weeks are in a day?", options: ["7", "5", "1/7", "24"], correct: 2 },
+    { question: "What river flows through the Grand Canyon?", options: ["Nile River", "Amazon River", "Missispi River", "Colorado River"], correct: 3 },
+    { question: "What is the largest country in the world by land area?", options: ["U.S.A", "Russia", "Mexico", "India"], correct: 1 },
     { question: "What is the oiffical name of Big Ben?", options: [" The Elizabeth Tower", " The Eiffel Tower ", "Burj Khalifa", " Willis Tower"], correct: 0 },
     { question: "Which planet is known as the red planet?", options: ["Super Earth", "Neptune", "Mars", "Pluto"], correct: 2 },
     { question: "What was the name of the Ancient Egyptian Sun God?", options: ["Khonsu", "Cleopatra", "Anubis", "Ra"], correct: 3 },
@@ -41,7 +41,7 @@ function checkAnswer(selected) {
     if (selected == correct) {
         score++;
     }
-    element.remove(feedback)
+    
 
 }
 
